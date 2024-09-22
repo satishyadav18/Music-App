@@ -64,11 +64,12 @@ function prevSong() {
 
 //progress-bar background
 function updateProgressBar() {
-    if (!isNaN(audio.duration)) {  // Ensure that duration is valid
+    if (!isNaN(audio.duration)) {  
         const progressPercent = (audio.currentTime / audio.duration) * 100;
         progressBar.value = progressPercent;
         progressBar.style.background = `linear-gradient(to right,#c6c2c2 ${progressPercent}%, #393939d5 ${progressPercent}%)`;
 
+        //current time and duration 
         let currentMinutes = Math.floor(audio.currentTime / 60);
         let currentSeconds = Math.floor(audio.currentTime % 60);
         let durationMinutes = Math.floor(audio.duration / 60);
@@ -80,13 +81,37 @@ function updateProgressBar() {
 }
 
 
+function setProgress(e) {
+    const width = this.clientWidth;
+    let offsetX;
+
+    if (e.type === 'click') {
+        offsetX = e.offsetX;
+    } else if (e.type === 'touchstart' || e.type === 'touchmove') {
+        const touch = e.touches[0];  
+        offsetX = touch.clientX - this.getBoundingClientRect().left;
+    }
+
+    const duration = audio.duration;
+
+    if (!isNaN(duration)) {
+        audio.currentTime = (offsetX / width) * duration;
+    }
+}
+
+//click & touch 
+progressBar.addEventListener('click', setProgress);
+progressBar.addEventListener('touchstart', setProgress);
+progressBar.addEventListener('touchmove', setProgress);
+
+
 //progress bar when clicked
 progressBar.addEventListener('click', function(e) {
     const width = this.clientWidth;
     const clickX = e.offsetX;
     const duration = audio.duration;
 
-    if (!isNaN(duration)) { // Ensure that duration is defined and valid
+    if (!isNaN(duration)) { 
         audio.currentTime = (clickX / width) * duration;
     }
 });
