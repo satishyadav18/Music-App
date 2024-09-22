@@ -145,9 +145,3 @@ audio.addEventListener('timeupdate', updateProgressBar);
 volumeBar.addEventListener('input', updateVolume);
 
 
-//first song 
-window.addEventListener('load', () => {
-    loadSong(songs[songIndex]);
-    volumeBar.value = 50;
-    updateVolume(); 
-});
