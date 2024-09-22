@@ -64,7 +64,7 @@ function prevSong() {
 
 //progress-bar background
 function updateProgressBar() {
-    if (audio.duration) {
+    if (!isNaN(audio.duration)) {  // Ensure that duration is valid
         const progressPercent = (audio.currentTime / audio.duration) * 100;
         progressBar.value = progressPercent;
         progressBar.style.background = `linear-gradient(to right,#c6c2c2 ${progressPercent}%, #393939d5 ${progressPercent}%)`;
@@ -86,9 +86,10 @@ progressBar.addEventListener('click', function(e) {
     const clickX = e.offsetX;
     const duration = audio.duration;
 
-    audio.currentTime = (clickX / width) * duration;
+    if (!isNaN(duration)) { // Ensure that duration is defined and valid
+        audio.currentTime = (clickX / width) * duration;
+    }
 });
-
 
 
 
