@@ -33,8 +33,8 @@ function loadSong(song) {
     audio.src = song.file; 
     songTitleEl.textContent = song.name;
     audio.load(); 
-    audio.play(); 
-    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
+   // audio.play(); 
+    playBtn.innerHTML = '<i class="fa-solid fa-play"></i>'; 
     updateVolume(); 
 }
 
@@ -90,14 +90,33 @@ progressBar.addEventListener('click', function(e) {
 });
 
 
-//Volume control
+
+
+let lastVolume = 0.5; 
+
+
+// Mute/Unmute 
+volumeIcon.addEventListener('click', () => {
+    if (audio.volume > 0) {
+        lastVolume = audio.volume;  
+        audio.volume = 0;           
+        volumeBar.value = 0;        
+    } else {
+        audio.volume = lastVolume;  
+        volumeBar.value = lastVolume * 100;  
+    }
+    updateVolume();  
+});
+
+
+// Volume control
 function updateVolume() {
     audio.volume = volumeBar.value / 100;
-    
-    //volume-bar background 
+
+    //volume bar background based on the current volume
     volumeBar.style.background = `linear-gradient(to right, #c6c2c2 ${audio.volume * 100}%, #393939d5 ${audio.volume * 100}%)`;
 
-    //volume-icon based on the volume level
+    // volume icon based on the current volume
     if (audio.volume === 0) {
         volumeIcon.className = 'fa-solid fa-volume-xmark';
     } else if (audio.volume <= 0.5) {
@@ -106,6 +125,17 @@ function updateVolume() {
         volumeIcon.className = 'fa-solid fa-volume-high';
     }
 }
+
+
+volumeBar.addEventListener('input', updateVolume);
+
+
+window.addEventListener('load', () => {
+    loadSong(songs[songIndex]);
+    volumeBar.value = 50;
+    audio.volume = 0.5;  
+    updateVolume();  
+});
 
 
 playBtn.addEventListener('click', playPauseMusic);
