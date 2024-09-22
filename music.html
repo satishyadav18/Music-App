@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="music.css">
+</head>
+<body>
+    <div class="player">
+
+
+        <!-- Album image -->
+        <div class="album-cover"></div>
+
+
+        <!-- Song title and artist display -->
+        <div class="song-info">
+            <h3> <span id="song-title"></span></h3>
+            <span id="artist">Satish🎧</span>
+        </div>
+
+
+        <!-- Progress bar -->
+        <input type="range" id="progress-bar" value="0">
+
+
+        <!-- Song time -->
+        <div class="info">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+
+
+        <!-- Control buttons-->
+        <div class="controls">
+            <button id="prev-btn"><i class="fa-solid fa-backward"></i></button>
+            <button id="play-btn"><i class="fa-solid fa-play"></i></button>
+            <button id="next-btn"><i class="fa-solid fa-forward"></i></button>
+        </div>
+
+
+        <!-- Volume control with icon -->
+        <div class="volume-control">
+            <i class="fa-solid fa-volume-low" id="volume-icon"></i>
+            <input type="range" id="volume-bar" value="50" min="0" max="100">
+        </div>
+
+
+        <!-- Audio element -->
+        <audio id="audio-player"></audio>
+    </div>
+
+
+    <script src="music.js"></script>
+    
+</body>
+</html>
