@@ -22,7 +22,7 @@ body {
     color: #f9f8f8;
     text-align: center;
     width: 300px;
-    height: 73vh; 
+    height: 85vh; 
     margin: 0 auto;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3); 
 }
@@ -123,6 +123,26 @@ input[type="range"]::-webkit-slider-thumb {
 
 
 
+
+
+/* suffle and stoptimer */
+.random {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+#suffle,#timer {
+    border-radius: 50px;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
 /* Control Buttons */
 .controls {
     display: flex;
@@ -154,7 +174,7 @@ input[type="range"]::-webkit-slider-thumb {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #volume-icon {
