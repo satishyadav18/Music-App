@@ -21,6 +21,10 @@ let lastVolume = 0.5; // Default volume
 
 // songs and their titles
 const songs = [
+    { name: 'Govind Bolo', file: 'Govind Bolo.mp3' },
+    { name: 'Ab Saunp Diya', file: 'Ab-Saunp-Diya.mp3' },
+    { name: 'Raam Aayenge', file: 'Raam Aayenge.mp3' },
+    { name: 'Ram Siya Ram', file: 'Ram Siya Ram.mp3' },
     { name: 'Zaroor', file: 'Zaroor.mp3' },
     { name: 'Dil Tu Jaan TU', file: 'Dil_Tu_Jaan_Tu.mp3' },
     { name: 'Ishq', file: 'Ishq.mp3' },
