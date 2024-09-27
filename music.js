@@ -193,6 +193,11 @@ suffleBtn.addEventListener('click', () => {
     } else {
         suffleBtn.style.backgroundColor = ''; 
     }
+
+    setTimeout(() => {
+        suffleBtn.style.backgroundColor = ''; 
+    }, 200); 
+
 });
 
 
@@ -216,6 +221,11 @@ timerBtn.addEventListener('click', () => {
         clearTimeout(timer);
         timerBtn.style.backgroundColor = '';
     }
+
+    setTimeout(() => {
+        timerBtn.style.backgroundColor = ''; 
+    }, 200); 
+    
 });
 
 
