@@ -1,3 +1,5 @@
+
+
 /* Body Styles */
 body {
     background-color: #212121;
@@ -10,18 +12,23 @@ body {
     color: #fff;
 }
 
+
+
 /* Player Styles */
 .player {
     background-color: #212121;
     border-radius: 15px;
     padding: 32px; 
+    /* color: #fff; */
     color: #f9f8f8;
     text-align: center;
     width: 300px;
-    height: 85vh; 
+    height: 80vh; 
     margin: 0 auto;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3); 
 }
+
+
 
 /* Album Cover */
 .album-cover {
@@ -35,6 +42,9 @@ body {
     background-size: cover;
     border: 1px solid rgba(59, 59, 59, 0.481);
 }
+
+
+
 
 /* Song Info */
 .song-info {
@@ -50,15 +60,23 @@ body {
     transition: color 0.3s;
 }
 
+
+
+
 #artist {
     color: #7f7f7f;
+    /* color: #f9f8f8; */
     font-size: 0.9rem; 
 }
 
 #artist:hover {
-    color: #f9f8f8;
+    color: #f9f8f8;;
+    /* color: #7f7f7f; */
     transition: color 0.3s;
+ 
 }
+
+
 
 /* Progress and Info Display */
 .info {
@@ -67,6 +85,9 @@ body {
     margin: 16px 0;
     font-size: 0.8rem; 
 }
+
+
+
 
 /* Slider Styling for Progress and Volume */
 input[type="range"] {
@@ -92,12 +113,28 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
+
+/* #progress-bar::-webkit-slider-thumb, #volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #c6c2c2;
+    border-radius: 50%;
+    cursor: pointer;
+} */
+
+
+
+
+
 /* suffle and stoptimer */
 .random {
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
 }
+
 
 .random button {
     background: transparent;
@@ -115,33 +152,46 @@ input[type="range"]::-webkit-slider-thumb {
     transform: scale(1.1);
 }
 
+
+/* #suffle,#timer {
+    border-radius: 50px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+} */
+
+
+
+
+
 /* Control Buttons */
 .controls {
     display: flex;
     justify-content: space-around;
     margin: 15px 0;
+    
 }
 
 .controls > button {
     background: none;
     border: none;
     font-size: 1.5rem;
+    /* color: #7f7f7f; */
     color: #efeded;
     cursor: pointer;
     margin: 5px;
     transition: color 0.3s, transform 0.3s;
 }
 
-/* Hover and Active Effect On Control Buttons */
 .controls button:hover {
-    color: #7f7f7f; 
-    transform: scale(1.1); 
+    /* color: rgb(215, 213, 213); */
+    /* color: #c4c4c4; */
+    color: #7f7f7f;
+    transform: scale(1.1);
 }
 
-/* Maintain color on active */
-.controls button:active {
-    color: #edebeb; 
-}
+
+
 
 /* Volume Control */
 .volume-control {
@@ -155,15 +205,19 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 1.5rem;
     color: #efeded;
     cursor: pointer;
+    /* color: #7f7f7f; */
 }
 
 #volume-icon:hover {
-    color: #7f7f7f; 
+    /* color: #c4c4c4; */
+    color: #7f7f7f;
     transition: color 0.3s, transform 0.3s;
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 #volume-bar {
     width: 100%;
     cursor: pointer;
 }
+
+
