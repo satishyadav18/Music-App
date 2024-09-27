@@ -57,6 +57,7 @@ body {
 
 #song-title:hover {
     color: #7f7f7f;
+    transition: color 0.3s;
 }
 
 
@@ -65,13 +66,14 @@ body {
 #artist {
     color: #7f7f7f;
     /* color: #f9f8f8; */
-    ;
     font-size: 0.9rem; 
 }
 
 #artist:hover {
     color: #f9f8f8;;
     /* color: #7f7f7f; */
+    transition: color 0.3s;
+ 
 }
 
 
@@ -97,7 +99,7 @@ input[type="range"] {
     border-radius: 5px;
     outline: none;
     cursor: pointer;
-    margin: 16px 0;
+    margin: 10px 0;
 }
 
 /* Thumb styling */
@@ -130,7 +132,7 @@ input[type="range"]::-webkit-slider-thumb {
 .random {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
 
@@ -139,16 +141,14 @@ input[type="range"]::-webkit-slider-thumb {
     border: none;
     border-radius: 20px;
     color: #f2eeee;
-    font-size: 16px;
+    font-size: 1.1rem;
     cursor: pointer;
-    margin-right: 10px;
     padding: 5px 10px; 
     transition: color 0.3s, transform 0.3s, background-color 0.3s; 
 }
 
 .random button:hover {
-    color: #525252;
-    color: #494848de;
+    color: #7f7f7f;
     transform: scale(1.1);
 }
 
@@ -168,7 +168,7 @@ input[type="range"]::-webkit-slider-thumb {
 .controls {
     display: flex;
     justify-content: space-around;
-    margin: 25px 0;
+    margin: 15px 0;
     
 }
 
@@ -198,7 +198,7 @@ input[type="range"]::-webkit-slider-thumb {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 #volume-icon {
@@ -211,6 +211,8 @@ input[type="range"]::-webkit-slider-thumb {
 #volume-icon:hover {
     /* color: #c4c4c4; */
     color: #7f7f7f;
+    transition: color 0.3s, transform 0.3s;
+    transform: scale(1.1);
 }
 
 #volume-bar {

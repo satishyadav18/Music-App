@@ -17,6 +17,8 @@ let timer;
 let songIndex = 0;
 let lastVolume = 0.5; // Default volume
 
+
+
 // songs and their titles
 const songs = [
     { name: 'Zaroor', file: 'Zaroor.mp3' },
@@ -40,6 +42,9 @@ function loadSong(song) {
     updateVolume();
 }
 
+
+
+
 // Play & pause music
 function playPauseMusic() {
     if (audio.paused) {
@@ -56,6 +61,8 @@ function pauseMusic() {
     audio.pause();
     playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
 }
+
+
 
 // Next song
 function nextSong() {
@@ -77,6 +84,8 @@ function prevSong() {
     playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; //play button to pause
 }
 
+
+
 // Update progress bar and background
 function updateProgressBar() {
     if (!isNaN(audio.duration)) {
@@ -96,14 +105,14 @@ function updateProgressBar() {
 }
 
 // Set progress bar manually when clicked
-function setProgress(e) {
+function setProgress(s) {
     const width = this.clientWidth;
     let offsetX;
 
-    if (e.type === 'click') {
-        offsetX = e.offsetX;
-    } else if (e.type === 'touchstart' || e.type === 'touchmove') {
-        const touch = e.touches[0];
+    if (s.type === 'click') {
+        offsetX = s.offsetX;
+    } else if (s.type === 'touchstart' || s.type === 'touchmove') {
+        const touch = s.touches[0];
         offsetX = touch.clientX - this.getBoundingClientRect().left;
     }
 
@@ -119,6 +128,9 @@ progressBar.addEventListener('click', setProgress);
 progressBar.addEventListener('touchstart', setProgress);
 progressBar.addEventListener('touchmove', setProgress);
 
+
+
+
 // Mute/Unmute functionality
 volumeIcon.addEventListener('click', () => {
     if (audio.volume > 0) {
@@ -132,6 +144,7 @@ volumeIcon.addEventListener('click', () => {
     updateVolume();
 });
 
+
 // mute/unmute on hover
 volumeIcon.addEventListener('mouseover', () => {
     if (audio.volume > 0) {
@@ -142,8 +155,10 @@ volumeIcon.addEventListener('mouseover', () => {
 });
 
 volumeIcon.addEventListener('mouseleave', () => {
-    updateVolume(); // Reset the icon to match the actual volume state
+    updateVolume(); // Reset the icon to match the actual volume 
 });
+
+
 
 // Volume control
 function updateVolume() {
@@ -162,6 +177,10 @@ function updateVolume() {
     }
 }
 
+
+
+
+
 // shuffle mode background
 suffleBtn.addEventListener('click', () => {
     isShuffle = !isShuffle; 
@@ -171,6 +190,8 @@ suffleBtn.addEventListener('click', () => {
         suffleBtn.style.backgroundColor = ''; 
     }
 });
+
+
 
 // Timer function and background 
 timerBtn.addEventListener('click', () => {
@@ -192,6 +213,8 @@ timerBtn.addEventListener('click', () => {
         timerBtn.style.backgroundColor = '';
     }
 });
+
+
 
 // Load initial song
 window.addEventListener('load', () => {
