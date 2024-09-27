@@ -140,7 +140,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 /* Maintain color on active */
 .controls button:active {
-    color: #7f7f7f; 
+    color: #edebeb; 
 }
 
 /* Volume Control */
