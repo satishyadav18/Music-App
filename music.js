@@ -18,8 +18,7 @@ let songIndex = 0;
 let lastVolume = 0.5; // Default volume
 
 
-
-// songs and their titles
+// Songs and their titles
 const songs = [
     { name: 'Govind Bolo', file: 'Govind Bolo.mp3' },
     { name: 'Ab Saunp Diya', file: 'Ab-Saunp-Diya.mp3' },
@@ -36,7 +35,6 @@ const songs = [
     { name: 'God Damn', file: 'God Damn.mp3' }
 ];
 
-
 // Load song & update title
 function loadSong(song) {
     audio.src = song.file;
@@ -45,9 +43,6 @@ function loadSong(song) {
     playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
     updateVolume();
 }
-
-
-
 
 // Play & pause music
 function playPauseMusic() {
@@ -60,14 +55,6 @@ function playPauseMusic() {
     }
 }
 
-// pause/play button
-function pauseMusic() {
-    audio.pause();
-    playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-}
-
-
-
 // Next song
 function nextSong() {
     if (isShuffle) {
@@ -77,7 +64,7 @@ function nextSong() {
     }
     loadSong(songs[songIndex]);
     audio.play(); 
-    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; //play button to pause 
+    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
 }
 
 // Previous song
@@ -85,9 +72,8 @@ function prevSong() {
     songIndex = (songIndex - 1 + songs.length) % songs.length;
     loadSong(songs[songIndex]);
     audio.play(); 
-    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; //play button to pause
+    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
 }
-
 
 
 // Update progress bar and background
@@ -95,7 +81,7 @@ function updateProgressBar() {
     if (!isNaN(audio.duration)) {
         const progressPercent = (audio.currentTime / audio.duration) * 100;
         progressBar.value = progressPercent;
-        progressBar.style.background = `linear-gradient(to right,#c6c2c2 ${progressPercent}%, #393939d5 ${progressPercent}%)`;
+        progressBar.style.background = `linear-gradient(to right, #c6c2c2 ${progressPercent}%, #393939d5 ${progressPercent}%)`;
 
         // Update current time and duration display
         let currentMinutes = Math.floor(audio.currentTime / 60);
@@ -134,7 +120,6 @@ progressBar.addEventListener('touchmove', setProgress);
 
 
 
-
 // Mute/Unmute functionality
 volumeIcon.addEventListener('click', () => {
     if (audio.volume > 0) {
@@ -148,8 +133,7 @@ volumeIcon.addEventListener('click', () => {
     updateVolume();
 });
 
-
-// mute/unmute on hover
+// Mute/unmute on hover
 volumeIcon.addEventListener('mouseover', () => {
     if (audio.volume > 0) {
         volumeIcon.className = 'fa-solid fa-volume-mute'; 
@@ -161,8 +145,6 @@ volumeIcon.addEventListener('mouseover', () => {
 volumeIcon.addEventListener('mouseleave', () => {
     updateVolume(); // Reset the icon to match the actual volume 
 });
-
-
 
 // Volume control
 function updateVolume() {
@@ -182,24 +164,15 @@ function updateVolume() {
 }
 
 
-
-
-
-// shuffle mode background
+// Shuffle mode background
 suffleBtn.addEventListener('click', () => {
     isShuffle = !isShuffle; 
     if (isShuffle) {
-        suffleBtn.style.backgroundColor = '#393939d5';
+        suffleBtn.style.backgroundColor = '#393939d5'; 
     } else {
         suffleBtn.style.backgroundColor = ''; 
     }
-
-    setTimeout(() => {
-        suffleBtn.style.backgroundColor = ''; 
-    }, 200); 
-
 });
-
 
 
 // Timer function and background 
@@ -221,13 +194,7 @@ timerBtn.addEventListener('click', () => {
         clearTimeout(timer);
         timerBtn.style.backgroundColor = '';
     }
-
-    setTimeout(() => {
-        timerBtn.style.backgroundColor = ''; 
-    }, 200); 
-    
 });
-
 
 
 // Load initial song
@@ -238,6 +205,7 @@ window.addEventListener('load', () => {
     updateVolume();
 });
 
+// Event listeners for buttons
 playBtn.addEventListener('click', playPauseMusic);
 nextBtn.addEventListener('click', nextSong);
 prevBtn.addEventListener('click', prevSong);
