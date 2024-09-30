@@ -40,7 +40,7 @@ function loadSong(song) {
     audio.src = song.file;
     songTitleEl.textContent = song.name;
     audio.load();
-    playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+    playBtn.innerHTML = '<i class="fa-solid fa-play"></i>'; // play button is reset to play when loading a new song
     updateVolume();
 }
 
@@ -48,31 +48,52 @@ function loadSong(song) {
 function playPauseMusic() {
     if (audio.paused) {
         audio.play();
-        playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Change to pause when playing
     } else {
         audio.pause();
-        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>'; // Change to play when paused
     }
 }
+
+
+audio.addEventListener('ended', () => {
+    playBtn.innerHTML = '<i class="fa-solid fa-play"></i>'; // Reset to play icon when the song ends
+});
+
+
 
 // Next song
 function nextSong() {
     if (isShuffle) {
-        songIndex = Math.floor(Math.random() * songs.length);
+        songIndex = Math.floor(Math.random() * songs.length); // Shuffle mode
     } else {
-        songIndex = (songIndex + 1) % songs.length;
+        songIndex = (songIndex + 1) % songs.length; // Normal mode
     }
+
     loadSong(songs[songIndex]);
-    audio.play(); 
-    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
+    audio.play();
+    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; //play button stays as pause when playing next song
 }
 
 // Previous song
 function prevSong() {
     songIndex = (songIndex - 1 + songs.length) % songs.length;
     loadSong(songs[songIndex]);
-    audio.play(); 
-    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
+    audio.play();
+    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+}
+
+// update play button to "play" when song ends
+function updatePlayButtonOnEnd() {
+    if (isShuffle) {
+        songIndex = Math.floor(Math.random() * songs.length); 
+        loadSong(songs[songIndex]); 
+        audio.play(); 
+        playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
+    } else {
+        //Stop the song and reset to play button when song ends
+        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+    }
 }
 
 
@@ -93,6 +114,8 @@ function updateProgressBar() {
         durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
     }
 }
+
+
 
 // Set progress bar manually when clicked
 function setProgress(s) {
@@ -164,15 +187,24 @@ function updateVolume() {
 }
 
 
-// Shuffle mode background
+// Shuffle mode background 
 suffleBtn.addEventListener('click', () => {
     isShuffle = !isShuffle; 
     if (isShuffle) {
-        suffleBtn.style.backgroundColor = '#393939d5'; 
+        suffleBtn.style.backgroundColor = '#393939d5'; // Highlight shuffle button
+
+        //automatically pick and play a random song when shuffle is activated
+        songIndex = Math.floor(Math.random() * songs.length);
+        loadSong(songs[songIndex]); 
+        audio.play(); 
+        playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'; 
     } else {
-        suffleBtn.style.backgroundColor = ''; 
+        suffleBtn.style.backgroundColor = ''; // Reset shuffle button background 
+        audio.pause(); // Stop the music if shuffle is deactivated
+        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
     }
 });
+
 
 
 // Timer function and background 
@@ -211,3 +243,4 @@ nextBtn.addEventListener('click', nextSong);
 prevBtn.addEventListener('click', prevSong);
 audio.addEventListener('timeupdate', updateProgressBar);
 volumeBar.addEventListener('input', updateVolume);
+audio.addEventListener('ended', updatePlayButtonOnEnd);
