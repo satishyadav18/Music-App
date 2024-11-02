@@ -32,6 +32,9 @@ const songs = [
     { name: 'Jo Tum Na Ho', file: 'Jo Tum Na Ho.mp3' },
     { name: 'Vibe', file: 'Vibe.mp3' },
     { name: 'Teri Baton Mein ~Satish', file: 'Teri Baton mein.mp3' },
+    { name: 'Black', file: 'Black.mp3'},
+    { name: 'Banjaara', file: 'Banjaara.mp3'},
+    { name: 'Hass Hass', file: 'Hass Hass.mp3'},
     { name: 'God Damn', file: 'God Damn.mp3' }
 ];
 
