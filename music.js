@@ -20,22 +20,22 @@ let lastVolume = 0.5; // Default volume
 
 // Songs and their titles
 const songs = [
-    { name: 'Govind Bolo', file: 'Govind Bolo.mp3' },
-    { name: 'Ab Saunp Diya', file: 'Ab-Saunp-Diya.mp3' },
-    { name: 'Raam Aayenge', file: 'Raam Aayenge.mp3' },
-    { name: 'Ram Siya Ram', file: 'Ram Siya Ram.mp3' },
-    { name: 'Zaroor', file: 'Zaroor.mp3' },
-    { name: 'Dil Tu Jaan TU', file: 'Dil_Tu_Jaan_Tu.mp3' },
-    { name: 'Ishq', file: 'Ishq.mp3' },
-    { name: 'Maahi', file: 'Maahi.mp3' },
-    { name: 'Samjhawan', file: 'Samjhawan.mp3' },
-    { name: 'Jo Tum Na Ho', file: 'Jo Tum Na Ho.mp3' },
-    { name: 'Vibe', file: 'Vibe.mp3' },
-    { name: 'Teri Baton Mein ~Satish', file: 'Teri Baton mein.mp3' },
-    { name: 'Black', file: 'Black.mp3'},
-    { name: 'Banjaara', file: 'Banjaara.mp3'},
-    { name: 'Hass Hass', file: 'Hass Hass.mp3'},
-    { name: 'God Damn', file: 'God Damn.mp3' }
+    { name: 'Govind Bolo', file: 'songs/Govind Bolo.mp3' },
+    { name: 'Ab Saunp Diya', file: 'songs/Ab-Saunp-Diya.mp3' },
+    { name: 'Raam Aayenge', file: 'songs/Raam Aayenge.mp3' },
+    { name: 'Ram Siya Ram', file: 'songs/Ram Siya Ram.mp3' },
+    { name: 'Zaroor', file: 'songs/Zaroor.mp3' },
+    { name: 'Dil Tu Jaan TU', file: 'songs/Dil_Tu_Jaan_Tu.mp3' },
+    { name: 'Ishq', file: 'songs/Ishq.mp3' },
+    { name: 'Maahi', file: 'songs/Maahi.mp3' },
+    { name: 'Samjhawan', file: 'songs/Samjhawan.mp3' },
+    { name: 'Jo Tum Na Ho', file: 'songs/Jo Tum Na Ho.mp3' },
+    { name: 'Vibe', file: 'songs/Vibe.mp3' },
+    { name: 'Teri Baton Mein ~Satish', file: 'songs/Teri Baton mein.mp3' },
+    { name: 'Black', file: 'songs/Black.mp3'},
+    { name: 'Banjaara', file: 'songs/Banjaara.mp3'},
+    { name: 'Hass Hass', file: 'songs/Hass Hass.mp3'},
+    { name: 'God Damn', file: 'songs/God Damn.mp3' }
 ];
 
 // Load song & update title

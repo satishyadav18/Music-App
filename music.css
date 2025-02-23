@@ -38,7 +38,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(image.png); 
+    background-image: url(background/image.png); 
     background-size: cover;
     border: 1px solid rgba(59, 59, 59, 0.481);
 }
